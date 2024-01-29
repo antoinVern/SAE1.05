@@ -3,8 +3,13 @@ import csv
 import os
 import markdown
 import webbrowser
+from tkinter import filedialog
+from tkinter import Tk
 
-dump_file_path = "DumpFile.txt"
+
+Tk().withdraw()
+dump_file_path = filedialog.askopenfilename()
+
 csv_file_path1 = "source.csv"
 csv_file_path2 = "destination.csv"
 
@@ -32,14 +37,14 @@ def parse_dump_file(file_path):
                 destination = 'gba.solunet.com.ar'
                     
             if 'par' in source:
-                source = 'PAR'
+                source = 'Paris'
             if 'par' in destination:
-                destination = 'PAR'
+                destination = 'Paris'
                 
             if 'BP' in source:
-                source = 'BP-Linux'
+                source = 'Linux'
             if 'BP' in destination:
-                destination = 'BP-Linux'
+                destination = 'Linux'
             # Count source packets
             if source:
                 if source in source_packet_counts:
@@ -172,5 +177,3 @@ with open(html_file_path, "w") as html_file:
 #os.startfile(csv_file_path2)
 
 webbrowser.open(html_file_path)
-
-
