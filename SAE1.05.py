@@ -45,19 +45,19 @@ def parse_dump_file(file_path):
                 source = 'Linux'
             if 'BP' in destination:
                 destination = 'Linux'
-            # Count source packets
+            # Compter les paquets source
             if source:
                 if source in source_packet_counts:
                     source_packet_counts[source] += 1
                 else:
                     source_packet_counts[source] = 1
-            # Count destination packets
+            # Compter les paquets destination
             if destination:
                 if destination in destination_packet_counts:
                     destination_packet_counts[destination] += 1
                 else:
                     destination_packet_counts[destination] = 1
-    # Sort the source_packet_counts and destination_packet_counts dictionaries in descending order of the counter
+    # Trier les dictionnaires source_packet_counts et destination_packet_counts par ordre décroissant du compteur
     source_packet_counts = dict(sorted(source_packet_counts.items(), key=lambda x: x[1], reverse=True))
     destination_packet_counts = dict(sorted(destination_packet_counts.items(), key=lambda x: x[1], reverse=True))
     
